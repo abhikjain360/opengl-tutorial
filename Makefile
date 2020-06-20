@@ -4,7 +4,6 @@ LIBS 	= -lGLEW -lGL -lglfw
 
 
 app: app.cpp
-	$(CXX) $(CFLAGS) $@.cpp $(LIBS) -o $@ && ./app && make clean
-
+	$(CXX) $(CFLAGS) $@.cpp $(LIBS) -o $@ && ./app
 clean:
 	rm -f app
