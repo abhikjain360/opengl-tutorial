@@ -1,5 +1,5 @@
 CXX 	= g++
-CFLAGS 	= -I . -g -pthread -Wpedantic
+CFLAGS 	= -I . -g -pthread -Wpedantic -std=c++17
 LIBS 	= -lGLEW -lGL -lglfw
 
 SRC 	= $(wildcard *.cpp)
