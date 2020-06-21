@@ -1,4 +1,5 @@
 #include "vertex_array.h"
+#include "vertex_buffer_layout.h"
 #include "renderer.h"
 
 #include <stdlib.h>
