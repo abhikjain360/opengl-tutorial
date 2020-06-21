@@ -5,6 +5,7 @@
 #include "renderer.h"
 
 #include "vertex_buffer.h"
+#include "vertex_buffer_layout.h"
 #include "index_buffer.h"
 #include "vertex_array.h"
 #include "shader.h"
@@ -67,20 +68,19 @@ int main(void) {
 		vb.unbind();
 		ib.unbind();
 
+		renderer renderer;
+
 		float r = 0.0f;
 		float increment = 0.05f;
 		/* Loop until the user closes the window */
 		while ( !glfwWindowShouldClose(window) ) {
 			/* Render here */
-			glClear(GL_COLOR_BUFFER_BIT);
+			renderer.clear();
 
 			shader.bind();
-
-			va.bind();
-			ib.bind();
 			shader.set_uniform4f("u_color", r, 0.3f, 0.8f, 1.0f);
 
-			GLCALL( glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr) );
+			renderer.draw(va, ib, shader);
 
 			if (r > 1.0f)
 				increment = -0.05f;
